@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import CommentList from './comment-list'
+import buttonDecorators from '../decorators/button-list'
 
 class Article extends PureComponent {
   render() {
@@ -18,12 +20,18 @@ class Article extends PureComponent {
     console.log('---', 'article title', ref)
   }
 
-  onButtonClick = () => this.props.toggleOpen(this.props.article.id)
+  onButtonClick = () =>
+    this.props.toggleOpen(this.props.article.id, !this.props.isOpen)
 
   get body() {
     const { isOpen, article } = this.props
     if (!isOpen) return null
-    return <section>{article.text}</section>
+    return (
+      <div>
+        <section>{article.text}</section>
+        <CommentList comments={article.comments} />
+      </div>
+    )
   }
 }
 

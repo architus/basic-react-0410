@@ -5,6 +5,7 @@ import ArticleList from './article-list'
 import ArticleChart from './articles-chart'
 import UserForm from './user-form'
 import articles from '../fixtures'
+import DayPacker from '../components/day-packer'
 
 class App extends Component {
   state = {
@@ -14,12 +15,15 @@ class App extends Component {
     return (
       <div>
         <UserForm />
+        <br />
         <Select
           options={this.options}
           value={this.state.selected}
           onChange={this.handleSelectionChange}
           isMulti
         />
+        <br />
+        <DayPacker />
         <ArticleList articles={articles} ref={this.setArticleListRef} />
         <ArticleChart articles={articles} />
       </div>

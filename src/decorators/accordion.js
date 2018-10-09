@@ -4,10 +4,14 @@ import React, { Component } from 'react'
 const accordionDecorator = (OriginalComponent) =>
   class AccordionDecorator extends Component {
     state = {
-      openItemId: null
+      openItemId: null,
+      isOpen: false
     }
 
-    toggleOpenItem = (openItemId) => this.setState({ openItemId })
+    toggleOpenItem = (openItemId, isOpen) => {
+      this.setState({ openItemId })
+      this.setState({ isOpen })
+    }
 
     render() {
       return (
@@ -15,6 +19,7 @@ const accordionDecorator = (OriginalComponent) =>
           {...this.props}
           toggleOpenItem={this.toggleOpenItem}
           openItemId={this.state.openItemId}
+          isOpen={this.state.isOpen}
         />
       )
     }
