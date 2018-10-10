@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import CommentList from './comment-list'
-import buttonDecorators from '../decorators/button-list'
 
 class Article extends PureComponent {
   render() {
