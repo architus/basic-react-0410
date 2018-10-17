@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import CSSTransition from 'react-addons-css-transition-group'
-import CommentList from '../comment-list'
+import CommentList from '../comment/comment-list'
 import './style.css'
 
 class Index extends PureComponent {
@@ -49,6 +50,17 @@ class Index extends PureComponent {
       </section>
     )
   }
+}
+
+Index.propTypes = {
+  article: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    date: PropTypes.string,
+    title: PropTypes.string,
+    text: PropTypes.string,
+    comments: PropTypes.array
+  }).isRequired,
+  isOpen: PropTypes.bool
 }
 
 export default Index
