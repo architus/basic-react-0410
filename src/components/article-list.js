@@ -40,5 +40,7 @@ export class ArticleList extends Component {
 const ArticleListWithAccordion = accordionDecorator(ArticleList)
 
 export default connect((state) => ({
-  articles: state.articles
+  articles: state.articles.articlesVisable.length
+    ? state.articles.articlesVisable
+    : state.articles.articlesState
 }))(ArticleListWithAccordion)
